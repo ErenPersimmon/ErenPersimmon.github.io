@@ -1,0 +1,1077 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Eren Persimmon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="红外小目标数据集   数据集名称 链接 对应代码    IRSTD-1k https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1JoGDGF96v4CncKZprDnoIor0k1opaLZa&#x2F;view 有   地&#x2F;空背景红外弱小飞机目标检测跟踪数据集 http:&#x2F;&#x2F;www.csdata.org&#x2F;p&#x2F;387&#x2F;    复杂背景下红外弱小运动目标检测数据集 https:&#x2F;&#x2F;www">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红外小目标">
+<meta property="og:url" content="http://example.com/2024/11/18/%E7%BA%A2%E5%A4%96%E5%B0%8F%E7%9B%AE%E6%A0%87/index.html">
+<meta property="og:site_name" content="Persimmon Blog">
+<meta property="og:description" content="红外小目标数据集   数据集名称 链接 对应代码    IRSTD-1k https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1JoGDGF96v4CncKZprDnoIor0k1opaLZa&#x2F;view 有   地&#x2F;空背景红外弱小飞机目标检测跟踪数据集 http:&#x2F;&#x2F;www.csdata.org&#x2F;p&#x2F;387&#x2F;    复杂背景下红外弱小运动目标检测数据集 https:&#x2F;&#x2F;www">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240628163834811.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240829165358147.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240813161227891.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716134642552.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716134542134.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240831203505364.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716140321382.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716140820136.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716141525289.png">
+<meta property="og:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20241021163718402.png">
+<meta property="article:published_time" content="2024-11-18T04:21:38.000Z">
+<meta property="article:modified_time" content="2024-11-18T04:28:05.044Z">
+<meta property="article:author" content="Eren Persimmon">
+<meta property="article:tag" content="红外小目标">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240628163834811.png">
+  
+  
+  
+  <title>红外小目标 - Persimmon Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"6bqQwrwDxoTBsXslZ4b41VCD-gzGzoHsz","app_key":"HtX7PjPlMUdNJQ0WA1MOox8E","server_url":"https://6bqqwrwd.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Persimmon Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="红外小目标"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-18 12:21" pubdate>
+          2024年11月18日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          81 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">红外小目标</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="红外小目标"><a href="#红外小目标" class="headerlink" title="红外小目标"></a>红外小目标</h1><h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><table>
+<thead>
+<tr>
+<th align="center">数据集名称</th>
+<th align="center">链接</th>
+<th>对应代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">IRSTD-1k</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1JoGDGF96v4CncKZprDnoIor0k1opaLZa/view">https://drive.google.com/file/d/1JoGDGF96v4CncKZprDnoIor0k1opaLZa/view</a></td>
+<td>有</td>
+</tr>
+<tr>
+<td align="center"><strong>地&#x2F;空背景红外弱小飞机目标检测跟踪数据集</strong></td>
+<td align="center"><a target="_blank" rel="noopener" href="http://www.csdata.org/p/387/">http://www.csdata.org/p/387/</a></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">复杂背景下红外弱小运动目标检测数据集</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.scidb.cn/en/detail?dataSetId=808025946870251520">https://www.scidb.cn/en/detail?dataSetId=808025946870251520</a></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">FLIR红外数据集</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/11GJe4MdM_NH6fuENCQ2MtQ">https://pan.baidu.com/s/11GJe4MdM_NH6fuENCQ2MtQ</a> 提取码:019b</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">OTCBVS红外行人数据集</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/SoonminHwang/rgbt-ped-detection">https://github.com/SoonminHwang/rgbt-ped-detection</a></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">NUAA-ＳＩＲＳＴ</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/YimianDai/open-sirst-v2">https://github.com/YimianDai/open-sirst-v2</a></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">ＮＵＤＴＳＩＲＳＴ</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://pan.baidu.com/share/init?surl=WdA_yOHDnIiyj4C9SbW_Kg&pwd=nudt">https://pan.baidu.com/share/init?surl=WdA_yOHDnIiyj4C9SbW_Kg&amp;pwd=nudt</a></td>
+<td>有</td>
+</tr>
+<tr>
+<td align="center">红外飞机小目标数据集</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.scidb.cn/en/detail?dataSetId=720626420933459968#p2">https://www.scidb.cn/en/detail?dataSetId=720626420933459968#p2</a></td>
+<td></td>
+</tr>
+<tr>
+<td align="center">红外无人机目标视频数据集 (UAV Dataset, UAVD)</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://sites.google.com/view/grli-uavdt/%E9%A6%96%E9%A1%B5">https://sites.google.com/view/grli-uavdt/%E9%A6%96%E9%A1%B5</a></td>
+<td>这个是可见光</td>
+</tr>
+<tr>
+<td align="center">ＳＩＲＳＴ-5k</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/luy0222/SIRST-5K">https://github.com/luy0222/SIRST-5K</a></td>
+<td>使用负片生成策略合成的数据集</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://pan.baidu.com/share/init?surl=EG-loK86aWJL7M6bPQjivA&pwd=1234">https://pan.baidu.com/share/init?surl=EG-loK86aWJL7M6bPQjivA&amp;pwd=1234</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="硕博士学位论文快速阅读-近5年-红外遥感小目标检测"><a href="#硕博士学位论文快速阅读-近5年-红外遥感小目标检测" class="headerlink" title="硕博士学位论文快速阅读(近5年)红外遥感小目标检测"></a>硕博士学位论文快速阅读(近5年)红外遥感小目标检测</h2><h3 id="复杂背景下红外运动小目标检测方法研究-任向阳"><a href="#复杂背景下红外运动小目标检测方法研究-任向阳" class="headerlink" title="复杂背景下红外运动小目标检测方法研究 任向阳"></a>复杂背景下红外运动小目标检测方法研究 任向阳</h3><h3 id="基于深度学习的红外弱小目标检测方法的研究-冯鹏"><a href="#基于深度学习的红外弱小目标检测方法的研究-冯鹏" class="headerlink" title="基于深度学习的红外弱小目标检测方法的研究 冯鹏"></a>基于深度学习的红外弱小目标检测方法的研究 冯鹏</h3><p><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240628163834811.png" srcset="/img/loading.gif" lazyload alt="image-20240628163834811"></p>
+<h4 id="经典的基于单帧的红外弱小目标检测方法"><a href="#经典的基于单帧的红外弱小目标检测方法" class="headerlink" title="经典的基于单帧的红外弱小目标检测方法"></a>经典的基于单帧的红外弱小目标检测方法</h4><p>形态学滤波</p>
+<p>加权局部对比度算法</p>
+<p>低秩稀疏分解<strong>（红外图像的每个像素构成可由三部分构成，即背景、目标和噪声）</strong></p>
+<p>对比方法参数设置</p>
+<h3 id="红外弱小目标的检测与跟踪方法研究"><a href="#红外弱小目标的检测与跟踪方法研究" class="headerlink" title="红外弱小目标的检测与跟踪方法研究"></a>红外弱小目标的检测与跟踪方法研究</h3><p>第一类是目标聚焦法，它根据目标特征,将小目标与红外背景进行区分.</p>
+<p>第二类是基于背景抑制的方法，主要关注背景的预测或保留，通过计算输入图像和预测背景之间的残差来实现目标的检测，其中顶帽变换<a href="Top-Hat">11-13</a>在红外弱小目标检测中应用广泛。</p>
+<p>第三类是基于学习的方法。</p>
+<p><strong>定义：光电仪器工程师协会(SPLE)将小目标定义为总空间范围小于80个像素点(99)，在256256个像素点的图像中所占比例小于0.12％的目标[41]。在某些论文中，红外弱小目标也被称为暗目标[42]，小目标[43]，低可观察目标，红外点目标[44]等。、</strong></p>
+<p>经典检测算法</p>
+<p>顶帽变换</p>
+<p>基于局部灰度概率分布的小目标检测算法</p>
+<p>基于奇异值分解的红外弱小目标检测</p>
+<p>基于背景自适应多特征融合的弱小目标检测</p>
+<p>基于空频域映射和虚警抑制的弱小目标检测算法</p>
+<h3 id="基于深度学习的红外弱小目标检测算法研究"><a href="#基于深度学习的红外弱小目标检测算法研究" class="headerlink" title="基于深度学习的红外弱小目标检测算法研究"></a>基于深度学习的红外弱小目标检测算法研究</h3><p>传统图像处理的检测方法和基于深度学习的检测方法，</p>
+<p>基于传统图像处理的检测方法通过图像去噪，平滑，特征匹配等方法进行目标检测</p>
+<h3 id="基于深度学习的红外弱小目标检测与主动跟踪研究"><a href="#基于深度学习的红外弱小目标检测与主动跟踪研究" class="headerlink" title="基于深度学习的红外弱小目标检测与主动跟踪研究"></a>基于深度学习的红外弱小目标检测与主动跟踪研究</h3><p><strong>根据国际光学工程学会（SPIE）的定义，红外弱小目标为尺寸不大于9*9像素的目标。其中，“弱”体现在目标的局部信杂比低，与周围背景差异小，难以分割。“小”体现在目标所占全部像素的比例少，一般不超过总像素数的0.12%，由于像素数少，一般没有纹理特征，呈点状。</strong></p>
+<h3 id="传统方法"><a href="#传统方法" class="headerlink" title="传统方法"></a>传统方法</h3><p>传统红外弱小目标检测算法主要有区域形态学滤波法、小波变换法、视觉注意力模型方法、假设检验法等。基于背景抑制加阈值处理的检测方法根据红外图像中真实目标占用像素非常少的特点，将真实的目标点认为是整幅图像中的高频信息，而背景的灰度变化比较平缓，可以认为是整幅图像中的低频信息。利用这种差别，基于背景抑制的红外弱小目标检测算法将红外图像中的低频部分灰度抑制为0，保留高频的噪声像素和真实目标的像素，再采用阈值分割方法过滤出目标。当然直接进行滤波再进行阈值分割的方法一般精确率较低或者检出率较低，无法直接应用于红外弱小目标检测跟踪系统，针对这些问题，各种改进的算法被提出来。</p>
+<p>Weiping,Yang &#x3D;&#x3D;&#x3D;&#x3D;》Li,J&#x3D;&#x3D;&#x3D;&#x3D;》Bai,Kun&#x3D;&#x3D;&#x3D;》Cheng,Wenxiong&#x3D;&#x3D;&#x3D;》</p>
+<p>基于神经网络的红外弱小目标检测算法</p>
+<p>双阶段</p>
+<p>单阶段</p>
+<p>Detection of infrared small targets using featurefusion convolutional network文献[42] 基于DenseNet和YOLO检测框架提出了红外目标的检测算法，该算法的精确率和检出率都非常高，但是目标的局部信杂比则非常高，且在文献中展示出的部分目标具有比较明显的轮廓，因此该算法可能不适合红外弱小目标的检测。</p>
+<p>文献[43]提出了用于一种增强红外图像的CNN网络，利用MNIST数据集中的手写图像来模拟长程红外图像的目标弱、背景杂波、对比度低等特性，对微弱的红外图像进行了增强。</p>
+<p>文献[44]提出一种基于深度学习的弱小目标检测方法，利用全卷积递归网络学习复杂背景下弱小目标的特征，该方法基于语义分割任务，能够将每个像素归类为背景和目标类别，网络中使用了残差模块。虽然模型参数较少但是逐像素的分类势必会为后续处理带来相当大量的计算。</p>
+<p>文献[45]提出了一种多帧检测的深度学习检测算法，但是其红外目标数据是虚拟构建的，无法说明其在真实红外检测跟踪设备上检测的有效性。</p>
+<p>最近也有研究者提出了基于循环神经网络RNN和LSTM的检测算法[46]，在同一管道内使用三维卷积网络(3D ConvNet)和长短期记忆网络(LSTM)来实现红外小目标的检测和预测。</p>
+<p>文献[48]提出了一种基于注意力机制卷积长短时记忆神经网络的弱小目标轨迹检测算法，通过3D卷积核提取连续15帧红外图像序列的短期时间维信息和空间维信息，结合卷积长短时记忆网络提取红外序列的长期时空信息，利用注意力机制关注弱小目标运动轨迹有关的关键信息并舍弃无关信息，实现了网络端对端的预测输出</p>
+<h3 id="基于深度学习的红外弱小目标检测研究"><a href="#基于深度学习的红外弱小目标检测研究" class="headerlink" title="基于深度学习的红外弱小目标检测研究"></a>基于深度学习的红外弱小目标检测研究</h3><p><strong>根据国际光学工程协会（Society of Photo-Optical Instrumentation Engineer, SPIE）对小目标的定义，它是指所占像素数量不超过9*9的区域，对于一副尺寸为256256的图像而言，目标像素数仅占整副图像的比例约0.15%[3]。</strong> </p>
+<h3 id="基于深度学习的机载红外弱小目标检测技术研究"><a href="#基于深度学习的机载红外弱小目标检测技术研究" class="headerlink" title="基于深度学习的机载红外弱小目标检测技术研究"></a>基于深度学习的机载红外弱小目标检测技术研究</h3><p>红外探测方式具有抗干扰能力强、隐蔽性好、灵敏度高、全天候工作等优点[2]</p>
+<h3 id="红外弱小目标检测的-深度学习方法研究"><a href="#红外弱小目标检测的-深度学习方法研究" class="headerlink" title="红外弱小目标检测的 深度学习方法研究"></a>红外弱小目标检测的 深度学习方法研究</h3><p>深度学习的部分就是讲的目标检测的发展历程</p>
+<h3 id="基于YOLOv5的复杂背景下红外弱小目标检测方法研究"><a href="#基于YOLOv5的复杂背景下红外弱小目标检测方法研究" class="headerlink" title="基于YOLOv5的复杂背景下红外弱小目标检测方法研究"></a>基于YOLOv5的复杂背景下红外弱小目标检测方法研究</h3><p>单帧&#x3D;&#x3D;&#x3D;》基于滤波、基于人类视觉系统、基于图像数据结构和基于深度学习四类算法</p>
+<p>多帧&#x3D;&#x3D;&#x3D;》基于传统和基于深度学习</p>
+<h3 id="基于深度学习的红外弱小目标检测与跟踪方法研究"><a href="#基于深度学习的红外弱小目标检测与跟踪方法研究" class="headerlink" title="基于深度学习的红外弱小目标检测与跟踪方法研究"></a>基于深度学习的红外弱小目标检测与跟踪方法研究</h3><h3 id="基于深度学习的红外图像序列中弱小目标检测跟踪算法研究"><a href="#基于深度学习的红外图像序列中弱小目标检测跟踪算法研究" class="headerlink" title="基于深度学习的红外图像序列中弱小目标检测跟踪算法研究"></a>基于深度学习的红外图像序列中弱小目标检测跟踪算法研究</h3><p>基于滤波的背景抑制类算法</p>
+<p>基于滤波的背景抑制类算法</p>
+<p>基于低秩稀疏优化的算法 </p>
+<p>基于深度学习的红外弱小目标检测算法</p>
+<p>（1）纯网络端到端模型 </p>
+<p>（2）手工特征深度网络联合模型 </p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="梳理脉络-博客、综述、学位论文，优缺点-，时间轴，表格形式"><a href="#梳理脉络-博客、综述、学位论文，优缺点-，时间轴，表格形式" class="headerlink" title="梳理脉络(博客、综述、学位论文，优缺点)，时间轴，表格形式"></a>梳理脉络(博客、综述、学位论文，优缺点)，时间轴，表格形式</h2><p><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240829165358147.png" srcset="/img/loading.gif" lazyload alt="image-20240829165358147"></p>
+<p>基于传统方法的红外小目标检测算法与基 于深度学习的红外小目标检测算法</p>
+<p><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240813161227891.png" srcset="/img/loading.gif" lazyload alt="image-20240813161227891"></p>
+<p>红外小目标缺少相对明显的颜色、形状、 纹理等信息，且边界模糊，这使得对其的检测更具挑 战。 更困难的是，建筑物、流动的云等干扰物的存在 使得红外小目标容易被干扰和淹没［４］ 。 再者，由于 高于绝对零度的物体都可以产生红外辐射，检测算 法的虚警率会大幅度提升。</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>红外成像技术凭借穿透能力强，工作距 离远，受天 气 影 响 较 小， 抗 外 界 干 扰 能 力 强、 且 测 量精度高、能持续工作等优点，使得基于红外成像 技术得到的图像进行的目标检测方法得到了众多 领域 的 广 泛 应 用， 如 辅 助 医 学 诊 断［１］ 、 缺 陷 检 测 ［２］ 、海上船舰搜寻［３］ 等。</p>
+<h3 id="引用文章梳理"><a href="#引用文章梳理" class="headerlink" title="引用文章梳理"></a>引用文章梳理</h3><h4 id="传统单帧"><a href="#传统单帧" class="headerlink" title="传统单帧"></a>传统单帧</h4><p>袁帅，延翔，张 昱 赓， 等． 双 邻 域 差 值 放 大 的 高 动 态 红 外弱小目标检测 方 法 （ 特 邀 ） ［ Ｊ ］ ． 红 外 与 激 光 工 程，<br>２０２２，５１（４） ：２０２２０１７１．</p>
+<p>吴文怡． 红外图像序列中弱小目标检测与跟踪技术研<br>究［ Ｄ］ ． 南京：　   南京航空航天大学，２００８</p>
+<p>潘胜达，张素，赵明，等． 基于双层局部对比度的红外弱小<br>目标检测方法［Ｊ］． 光子学报，２０２０，４９（１）：０１１０００３</p>
+<h4 id="传统多帧"><a href="#传统多帧" class="headerlink" title="传统多帧"></a>传统多帧</h4><p>娄康，朱志宇，葛慧林． 基于目标运动特征的红外目标 检测与 跟 踪 方 法 ［ Ｊ ］ ． 南 京 理 工 大 学 学 报， ２０１９， ４３<br>（４） ：４５５ － ４６１．</p>
+<p>Ｂａｅ Ｔ Ｗ． Ｓｍａｌｌ ｔａｒｇｅｔ ｄｅｔｅｃｔｉｏｎ ｕｓｉｎｇ ｂｉｌａｔｅｒａｌ ﬁｌｔｅｒ ａｎｄ<br>ｔｅｍｐｏｒａｌ  ｃｒｏｓｓ  ｐｒｏｄｕｃｔ  ｉｎ  ｉｎｆｒａｒｅｄ  ｉｍａｇｅｓ ［ Ｊ ］ ． Ｉｎｆｒａｒｅｄ<br>Ｐｈｙｓｉｃｓ ＆ Ｔｅｃｈｎｏｌｏｇｙ，２０１１，５４（５） ：４０３ － ４１１．</p>
+<p>Ｌｉｕ Ｄ， Ｚｈａｎｇ  Ｊ， Ｄｏｎｇ  Ｗ． Ｔｅｍｐｏｒａｌ  ｐｒｏﬁｌｅ  ｂａｓｅｄ  ｓｍａｌｌ<br>ｍｏｖｉｎｇ ｔａｒｇｅｔ ｄｅｔｅｃｔｉｏｎ ａｌｇｏｒｉｔｈｍ ｉｎ ｉｎｆｒａｒｅｄ ｉｍａｇｅ ｓｅ⁃<br>ｑｕｅｎｃｅｓ［ Ｊ ］ ． Ｉｎｔｅｒｎａｔｉｏｎａｌ Ｊｏｕｒｎａｌ ｏｆ Ｉｎｆｒａｒｅｄ ａｎｄ Ｍｉｌｌｉ⁃<br>ｍｅｔｅｒ Ｗａｖｅｓ，２００７，２８（５） ：３７３ － ３８１．</p>
+<h4 id="深度学习-检测算法"><a href="#深度学习-检测算法" class="headerlink" title="深度学习-检测算法"></a>深度学习-检测算法</h4><p>安防</p>
+<p>段应奎． 基于深度学习的人脸识别技术在安防领域的<br>应用［ Ｊ］ ． 中国安防，２０１７，（１１） ：７２ － ７４．</p>
+<p>自动驾驶</p>
+<p>张新钰，高洪波， 赵 建 辉， 等． 基 于 深 度 学 习 的 自 动 驾 驶技术综述［ Ｊ］ ． 清华大学学报：自然科学版，２０１８，５８ （４） ：４３８ － ４４４．</p>
+<p>智能医疗</p>
+<p>施俊，汪琳琳，王 珊 珊， 等． 深 度 学 习 在 医 学 影 像 中 的 应用综述［ Ｊ］ ． 中国图象图形学报，２０２０，２５ （ １０ ） ：１９５３ － １９８１．</p>
+<p>智慧家居</p>
+<p>包晓安，徐海，张 娜， 等． 基 于 深 度 学 习 的 语 音 识 别 模 型及其在智能家居中的应用［ Ｊ］ ． 浙江理工大学学报： 自然科学版，２０１９，４１（２） ：２１７ － ２２３．</p>
+<h4 id="单阶段"><a href="#单阶段" class="headerlink" title="单阶段"></a>单阶段</h4><p>yolo</p>
+<p>Ｒｅｄｍｏｎ Ｊ， Ｄｉｖｖａｌａ Ｓ， Ｇｉｒｓｈｉｃｋ Ｒ， ｅｔ ａｌ． Ｙｏｕ ｏｎｌｙ ｌｏｏｋ ｏｎｃｅ：ｕｎｉﬁｅｄ，ｒｅａｌ⁃ｔｉｍｅ ｏｂｊｅｃｔ ｄｅｔｅｃｔｉｏｎ［ Ｃ］ ／ ／ Ｐｒｏｃｅｅｄｉｎｇｓ ｏｆ ｔｈｅ ＩＥＥＥ Ｃｏｎｆｅｒｅｎｃｅ ｏｎ Ｃｏｍｐｕｔｅｒ Ｖｉｓｉｏｎ ａｎｄ Ｐａｔｔｅｒｎ Ｒｅｃｏｇｎｉｔｉｏｎ，２０１６：７７９ － ７８８．</p>
+<p>SSD</p>
+<p>Ｌｉｕ Ｗ，Ａｎｇｕｅｌｏｖ Ｄ，Ｅｒｈａｎ Ｄ，ｅｔ ａｌ． Ｓｓｄ：ｓｉｎｇｌｅ ｓｈｏｔ ｍｕｌｔｉ⁃ ｂｏｘ ｄｅｔｅｃｔｏｒ［ Ｃ］ ／ ／ Ｅｕｒｏｐｅａｎ Ｃｏｎｆｅｒｅｎｃｅ ｏｎ Ｃｏｍｐｕｔｅｒ Ｖｉ⁃ ｓｉｏｎ． Ｓｐｒｉｎｇｅｒ，Ｃｈａｍ，２０１６：２１ － ３７．</p>
+<p>Ａｎｃｈｏｒ⁃Ｆｒｅｅ</p>
+<p>Ｌａｗ Ｈ， Ｄｅｎｇ Ｊ． Ｃｏｒｎｅｒｎｅｔ： ｄｅｔｅｃｔｉｎｇ ｏｂｊｅｃｔｓ ａｓ ｐａｉｒｅｄ ｋｅｙｐｏｉｎｔｓ ［ Ｃ］ ／ ／ Ｐｒｏｃｅｅｄｉｎｇｓ ｏｆ ｔｈｅ Ｅｕｒｏｐｅａｎ Ｃｏｎｆｅｒｅｎｃｅ ｏｎ Ｃｏｍｐｕｔｅｒ Ｖｉｓｉｏｎ（ ＥＣＣＶ） ，２０１８：７３４ － ７５０．</p>
+<h4 id="双阶段"><a href="#双阶段" class="headerlink" title="双阶段"></a>双阶段</h4><p>R-CNN</p>
+<p>  Ｇｉｒｓｈｉｃｋ Ｒ，Ｄｏｎａｈｕｅ Ｊ，Ｄａｒｒｅｌｌ Ｔ，ｅｔ ａｌ． Ｒｉｃｈ ｆｅａｔｕｒｅ ｈｉｅｒ⁃<br>ａｒｃｈｉｅｓ ｆｏｒ ａｃｃｕｒａｔｅ ｏｂｊｅｃｔ ｄｅｔｅｃｔｉｏｎ ａｎｄ ｓｅｍａｎｔｉｃ ｓｅｇｍｅｎ⁃<br>ｔａｔｉｏｎ［ Ｃ］ ／ ／ Ｐｒｏｃｅｅｄｉｎｇｓ ｏｆ ｔｈｅ ＩＥＥＥ Ｃｏｎｆｅｒｅｎｃｅ ｏｎ Ｃｏｍ⁃<br>ｐｕｔｅｒ Ｖｉｓｉｏｎ ａｎｄ Ｐａｔｔｅｒｎ Ｒｅｃｏｇｎｉｔｉｏｎ，２０１４：５８０ － ５８７．</p>
+<p>ＭａｓｋＲ⁃ＣＮＮ</p>
+<p>Ｇｉｒｓｈｉｃｋ Ｒ． Ｆａｓｔ Ｒ⁃ｃｎｎ［Ｃ］ ／ ／ Ｐｒｏｃｅｅｄｉｎｇｓ ｏｆ ｔｈｅ ＩＥＥＥ Ｉｎｔｅｒ⁃<br>ｎａｔｉｏｎａｌ Ｃｏｎｆｅｒｅｎｃｅ ｏｎ Ｃｏｍｐｕｔｅｒ Ｖｉｓｉｏｎ，２０１５：１４４０ － １４４８．</p>
+<p>Ｆａｓｔｅｒ⁃ＲＣＮＮ</p>
+<p>Ｒｅｎ Ｓ，Ｈｅ Ｋ，Ｇｉｒｓｈｉｃｋ Ｒ，ｅｔ ａｌ． Ｆａｓｔｅｒ Ｒ⁃ＣＮＮ：ｔｏｗａｒｄｓ ｒｅ⁃<br>ａｌ⁃ｔｉｍｅ ｏｂｊｅｃｔ ｄｅｔｅｃｔｉｏｎ ｗｉｔｈ ｒｅｇｉｏｎ ｐｒｏｐｏｓａｌ ｎｅｔｗｏｒｋｓ<br>［ Ｊ］ ． ＩＥＥＥ Ｔｒａｎｓａｃｔｉｏｎ ｏｎ Ｐａｔｔｅｒｎ Ａｎａｌｙｓｉｓ ＆ Ｍａｃｈｉｎｅ Ｉｎ⁃<br>ｔｅｌｌｉｇｅｎｃｅ，２０１７，３９（６） ：１１３７ － １１４９．</p>
+<h4 id="数据集-1"><a href="#数据集-1" class="headerlink" title="数据集"></a>数据集</h4><p>ＳＩＲＳＴ 数据集 </p>
+<p>Ｄａｉ Ｙ，Ｗｕ Ｙ，Ｚｈｏｕ Ｆ，ｅｔ ａｌ． Ａｓｙｍｍｅｔｒｉｃ ｃｏｎｔｅｘｔｕａｌ ｍｏｄｕ⁃ ｌａｔｉｏｎ ｆｏｒ ｉｎｆｒａｒｅｄ ｓｍａｌｌ ｔａｒｇｅｔ ｄｅｔｅｃｔｉｏｎ［ Ｃ］ ／ ／ Ｐｒｏｃｅｅｄｉｎｇｓ ｏｆ ｔｈｅ ＩＥＥＥ ／ ＣＶＦ Ｗｉｎｔｅｒ Ｃｏｎｆｅｒｅｎｃｅ ｏｎ Ａｐｐｌｉｃａｔｉｏｎｓ ｏｆ Ｃｏｍｐｕｔｅｒ Ｖｉｓｉｏｎ，２０２１：９５０ － ９５９</p>
+<p>ＮＵＤＴ⁃ＳＩＲＳＴ 数据集</p>
+<p>Ｌｉ Ｂ，Ｘｉａｏ Ｃ， Ｗａｎｇ Ｌ， ｅｔ ａｌ． Ｄｅｎｓｅ ｎｅｓｔｅｄ ａｔｔｅｎｔｉｏｎ ｎｅｔ⁃ ｗｏｒｋ ｆｏｒ ｉｎｆｒａｒｅｄ ｓｍａｌｌ ｔａｒｇｅｔ ｄｅｔｅｃｔｉｏｎ［ Ｊ］ ． Ｊｏｕｒｎａｌ ｏｆ Ｌａ⁃ ｔｅｘ Ｃｌａｓｓ Ｆｉｌｅｓ，２０１５，１４（８） </p>
+<p>红外飞机小目标数据集</p>
+<p>汪嘉鑫，徐贵川， 于 婷 洋， 等． 复 杂 红 外 背 景 中 运 动 小 目标快速跟踪技术［ Ｊ］ ． 应用光学，２０２１，４２（３） ：４４３．</p>
+<p>地 ／ 空背景下红外图像弱小飞机目标检测跟 踪数据集</p>
+<p>回丙伟，宋志勇，范红旗，等． 地 ／ 空背景下红 外 图 像 弱 小飞机目 标 检 测 跟 踪 数 据 集 ［ Ｊ ］ ． 中 国 科 学 数 据， ２０２０，５（３） ：２８６ － ２９７．</p>
+<h2 id="最新的红外遥感小目标检测模型，最新有哪些模型-榜单去看，有源码模型"><a href="#最新的红外遥感小目标检测模型，最新有哪些模型-榜单去看，有源码模型" class="headerlink" title="最新的红外遥感小目标检测模型，最新有哪些模型(榜单去看，有源码模型)"></a>最新的红外遥感小目标检测模型，最新有哪些模型(榜单去看，有源码模型)</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>地址</th>
+<th>数据集</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SIRST-5K</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/luy0222/SIRST-5K">https://github.com/luy0222/SIRST-5K</a></td>
+<td><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716134642552.png" srcset="/img/loading.gif" lazyload alt="image-20240716134642552"></td>
+<td></td>
+</tr>
+<tr>
+<td>SCTransNet</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/xdFai/SCTransNet">https://github.com/xdFai/SCTransNet</a></td>
+<td><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716134542134.png" srcset="/img/loading.gif" lazyload alt="image-20240716134542134"><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240831203505364.png" srcset="/img/loading.gif" lazyload alt="image-20240831203505364"></td>
+<td>NUDT_SIRST<strong>94.09</strong></td>
+</tr>
+<tr>
+<td>MiM-ISTD</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/txchen-ustc/mim-istd">https://github.com/txchen-ustc/mim-istd</a></td>
+<td><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716140321382.png" srcset="/img/loading.gif" lazyload alt="image-20240716140321382"></td>
+<td>NUAA-SIRST <strong>80.92</strong></td>
+</tr>
+<tr>
+<td>MSHNet</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/ying-fu/MSHNet">https://github.com/ying-fu/MSHNet</a></td>
+<td><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716140820136.png" srcset="/img/loading.gif" lazyload alt="image-20240716140820136"></td>
+<td></td>
+</tr>
+<tr>
+<td>IRSAM</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/IPIC-Lab/IRSAM">https://github.com/IPIC-Lab/IRSAM</a></td>
+<td><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20240716141525289.png" srcset="/img/loading.gif" lazyload alt="image-20240716141525289"></td>
+<td>IRSTD-1K <strong>73.69</strong></td>
+</tr>
+<tr>
+<td>MRF3Net</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Temperature-ai/MRF3Net">https://github.com/Temperature-ai/MRF3Net</a></td>
+<td><img src="https://eren-fang.oss-cn-zhangjiakou.aliyuncs.com/typora/image-20241021163718402.png" srcset="/img/loading.gif" lazyload alt="image-20241021163718402"></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>模型名称</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>代码地址</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ALCNet（2020）</td>
+<td>提出了一种用于红外小目标检测的新型模型驱动深度网络，该网络结合了判别网络和传统模型驱动方法，以利用标记网络和传统模型驱动方法</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/YimianDai/open-alcnet">https://github.com/YimianDai/open-alcnet</a></td>
+</tr>
+<tr>
+<td>ACM（2021）</td>
+<td>提出了一种专门针对红外小目标检测设计的不对称上下文调制模块。除了利用自顶向下的全局上下文反馈外，还加入了基于逐点通道注意力机制的自底向上的调节路径，以更好地突出小目标。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/YimianDai/open-acm">https://github.com/YimianDai/open-acm</a></td>
+</tr>
+<tr>
+<td>DNA-Net（2022）</td>
+<td>DNA-Net通过引入DNIM（实现高层和低层特征之间的渐进式交互）和CSAM（基于DNIM之上，进一步增强多级特征，从而更好地融合并利用小目标的上下文信息。）解决了小目标丢失的问题。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a>  YeRen123455&#x2F;Infrared-Small-Target-Detection.</td>
+</tr>
+<tr>
+<td>ISNet（2022）</td>
+<td>利用泰勒有限差分法对目标进行复杂的边缘特征提取，以增强目标和背景的灰度差异。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/RuiZhang97/ISNet">https://github.com/RuiZhang97/ISNet</a></td>
+</tr>
+<tr>
+<td><strong>IAANet</strong>（2022）</td>
+<td>提出的IAANet方法通过使用区域提议网络（RPN）获得粗略的目标区域，然后利用Transformer编码器建模这些区域内像素间的注意力关系，最后通过分类头输出最终的检测结果。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/kwwcv/iaanet">https://github.com/kwwcv/iaanet</a></td>
+</tr>
+<tr>
+<td>UIU-Net（2023）</td>
+<td>提出了一种简单有效的“U-Net  in U-Net”框架，简称UIU-Net，用于检测红外图像中的小物体。顾名思义，UIU-Net 将一个微小的 UNet 嵌入到一个更大的 U-Net  主干中，从而实现对象的多层次和多尺度表示学习。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/danfenghong/IEEE_TIP_UIU-Net">https://github.com/danfenghong/IEEE_TIP_UIU-Net</a></td>
+</tr>
+<tr>
+<td>ABC（2023）</td>
+<td>提出了一种称为双线性相关注意力（ABC）的新模型，该模型基于  Transformer  架构，并包括一个卷积线性融合变压器（CLFT）模块，该模块具有用于特征提取和融合的新颖注意力机制，可以有效地增强目标特征并抑制噪声。此外，我们的模型还包括位于网络较深层的  U 形卷积扩张卷积（UCDC）模块，它利用较深层特征的较小分辨率来获取更精细的语义信息。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/PANPEIWEN/ABC">https://github.com/PANPEIWEN/ABC</a></td>
+</tr>
+<tr>
+<td>MTU-Net（2023）</td>
+<td>设计了一个视觉变换器（ViT）卷积神经网络（CNN）混合编码器来提取多级特征。局部特征图首先由几个卷积层提取，然后输入多级特征提取模块（MVTM）以捕获长距离依赖性。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/TianhaoWu16/Multi-level-TransUNet-for-Space-based-Infrared-Tiny-ship-Detection">https://github.com/TianhaoWu16/Multi-level-TransUNet-for-Space-based-Infrared-Tiny-ship-Detection</a></td>
+</tr>
+<tr>
+<td>MSHNet（2024）</td>
+<td>提出了一种新的损失函数，用于提高红外小目标检测(IRSTD)的性能。设计了一个简单的多尺度头部加入到标准的U-Net架构中，通过对每个预测尺度应用SLS损失，MSHNet在红外小目标检测上实现了显著的性能提升</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/ying-fu/MSHNet">https://github.com/ying-fu/MSHNet</a></td>
+</tr>
+<tr>
+<td>MIM-ISTD（2024）</td>
+<td>定制了  Mamba-in-Mamba (MiM-ISTD) 结构以实现高效的 ISTD</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/txchen-USTC/MiM-ISTD">https://github.com/txchen-USTC/MiM-ISTD</a></td>
+</tr>
+<tr>
+<td>IRSAM（2024）</td>
+<td>提出了  IRSTD 的 IRSAM 模型，它改进了 SAM 的编码器-解码器架构，以学习更好的红外小物体的特征表示</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/IPIC-Lab/IRSAM">https://github.com/IPIC-Lab/IRSAM</a></td>
+</tr>
+<tr>
+<td>SCTransNet（2024）</td>
+<td>该模型通过使用空间通道交叉变换器块（SCTB）来增强不同级别的编码器之间的交互，并利用长距离跳过连接来改善信息流动。</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/xdFai/SCTransNet">https://github.com/xdFai/SCTransNet</a></td>
+</tr>
+</tbody></table>
+<h2 id="关注红外小目标检测里存在问题-小目标、密集、红外-，决定后期哪些模块和优化是可以考虑的-注意力等等"><a href="#关注红外小目标检测里存在问题-小目标、密集、红外-，决定后期哪些模块和优化是可以考虑的-注意力等等" class="headerlink" title="关注红外小目标检测里存在问题(小目标、密集、红外)，决定后期哪些模块和优化是可以考虑的(注意力等等)"></a>关注红外小目标检测里存在问题(小目标、密集、红外)，决定后期哪些模块和优化是可以考虑的(注意力等等)</h2><p>（1）目标在成像时距离红外探测器往往很远，导致红外图像上目标通常表现为十几个像素，甚至只占有一个像素。目标的形状、纹理等结构特征信息丢失，增加了目标检测的难度。 （2）远距离成像时，红外图像场景跨度大，背景复杂。目标的红外辐射受到大气衰减、传感器自身噪声等因素的影响，图像中的目标信噪比往往很低，导致目标常常淹没在背景中。 （3）在某些应用场景下，特别是军事用途中，要求检测算法具有实时性。这又增加了红外弱小目标检测任务的难度</p>
+<p>1、噪声复杂性</p>
+<p>2、弱纹理表达性</p>
+<p>3、尺度分布差异性</p>
+<p>1、目前公开的红外弱小目标数据集太少，仅有1个公开的红外数据<strong>集地&#x2F;空背景下红外图像弱小飞机目标检测跟踪数据集</strong>，这个数据集有地面背景和天空背景的红外小目标数据，其中地面背景的数据背景比较复杂，检测比较有挑战性。但是其中大部分目标距离不够远，具有明显的轮廓。除此之外，相比于COCO数据集和ImageNet数据集来说，数据量仍然不够大，种类不够丰富。</p>
+<p>2、目前红外弱小目标检测的研究文献很少提到局部信杂比，在远距离检测上，局部信杂比是一个非常重要的指标，能够衡量算法检测到目标的强弱程度，能够稳定检测到低局部信杂比的目标的算法在远距离检测上的意义重大，能够提高预警系统的灵敏程度，为防御系统或者攻击系统提供更充足的准备时间。</p>
+<p>3、目前的研究文献，无论是基于传统图像处理方法还是基于神经网络的算法，仍然以单帧检测算法为主，单帧的算法没有利用到时间维度上小目标位置的连续性，在极低局部信杂比下，其精确率与检出率必然难以同时提高，其检测的稳定性不会高于多帧检测算法。在计算机NPU、FPGA等硬件算力越来越强大的背景下，更应该集中于多帧算法，在保证实时性的情况下，不断提高红外弱小目标检测的精确率、召回率，提高检测的距离。</p>
+<p>4、红外检测与跟踪系统的工作方式一般为主动跟踪，也就是说，在检测到小目标后必须控制跟踪系统对目标进行连续跟踪，其背景在不断变化，帧差法等算法将无法适应这样的工作环境。所以必须考虑到系统主动跟踪的工作特性。</p>
+<p>1）目标特征少</p>
+<p>基于深度学习的目标检测算法通过大量样本和标签对模型参数进行训练，提取目标潜在特征，但小目标自身缺乏一定纹理信息，可用于判别特征过少，导致模型训练效果差，拟合能力较弱。</p>
+<p>2）分辨率与语义信息之间的矛盾</p>
+<p>小目标由于尺度较小、与背景灰度差别较弱，往往淹没在复杂的杂波背景中，需要较高的分辨率去“聚焦”目标，而深度学习是通过逐层卷积衰减尺度来学习更多语义表示，最后使用一个特征层提取语义特征进行检测，这是一个深层网络的内在矛盾，在图像中，大目标具有较深的语义信息，可以获得较好的测试结果，但小目标仅在一定邻域内与背景有强对比度，无明显高层语义特征，且由于灰度、尺度都较小，在多次池化、卷积中目标会被背景平滑掉，难以在高层的“视野”中具有较好的特征表现，提取到的特征对小目标不敏感，导致目标会被漏检。</p>
+<p>3）目标尺度小造成定位难</p>
+<p>机载小目标在整张图中所占像素比例较小，导致训练时正负样本严重不均衡，全图目标所占像素比例仅为0.08，而现有算法框架多是采用锚框回归方式进行目标定位，通过在图像中生成一系列锚框来回归目标位置，此时在正样本周围进行IOU回归判别时，预测框轻微偏斜，会导致交并比急速变化，在正负样本间多次震荡。检测模型会更倾向于大&#x2F;中尺度目标的检测，忽略小目标，造成小目标检测结果无法提升[48]</p>
+<p>1）目标小。当红外成像系统的成像距离较远时，红外图像中的弱小目标通常很小，像素占比少，目标分辨率低。 </p>
+<p>2）强度弱。红外弱小目标的辐射强度较弱、信噪比低，与周围环境的对比度低，通常不超过15%[2]，目标显著性不强，常规的目标检测方法很难对复杂背景中的红外弱小目标进行准确率高、鲁棒性强的检测。</p>
+<p>3）形状和纹理信息少。红外弱小目标通常以亮斑的形态存在，具有的形状和纹理信息十分有限，特征细节不明显，且在实际的应用场景中，目标所处的环境复杂多变，极易淹没在复杂的背景当中。 </p>
+<p>4）受噪声干扰。受成像器件灵敏度的限制，红外图像在生成和传输的过程中，易产生噪点、条纹噪声等干扰，使图像质量下降，给红外弱小目标的检测带来难度。 </p>
+<h2 id="论文逻辑"><a href="#论文逻辑" class="headerlink" title="论文逻辑"></a>论文逻辑</h2><h3 id="背景和意义"><a href="#背景和意义" class="headerlink" title="背景和意义"></a>背景和意义</h3><h4 id="第一版"><a href="#第一版" class="headerlink" title="第一版"></a>第一版</h4><p>红外成像是将目标的红外辐射和背景信息转换成红外图像的过程，其具有隐蔽性高，抗干扰性强，可远距离长时间工作等优点。在精确制导、防空预警等国防安全体系上，能够较早的检测到目标信息，为目标打击提供信息支撑，实现快速打击有着极高的军事及现实意义。随着科技发展，新型无人机、航拍器等空中设备逐渐增多，法律监管也在逐步完善，但是仍存在无人机的“黑飞”，间谍利用无人机对军事设施进行监视等问题。不仅要对空中安全做好监管，而且对于重点区域的安全保护和隐私防卫更需要注意。当前国际局势较为动荡，在俄乌冲突、巴以冲突中双方使用无人机探查敌情并进行战术打击，防空系统对于导弹等设备有着较高的防御能力，如美国的“爱国者导弹”系统，以色列的“铁穹”系统等，但是对于无人机这种低慢小无人机，其表现有待提高。由此可见无人机等这类小型目标的检测需要引起我们重视，提升我国的弱小目标的检测与跟踪能力对增强国家航空安全、军事实力非常重大的意义。</p>
+<p>除此之外，随着计算机硬件的进步以及深度学习的快速发展，计算机视觉中各领域的精确度有了极大的提升，红外目标检测也有了较大的进步，并有许多研究者前赴后继的在这个方向上不懈努力着。红外弱小目标检测是指在红外图像中识别和检测那些亮度较低、对比度不高的小型目标的过程。根据国际光学工程学会（SPIE）的定义，红外弱小目标是指那些尺寸不超过9x9像素的目标。其“弱”主要体现在目标的局部信噪比很低，与周围背景的差异很小，难以被分离出来。而“小”则指的是目标所占的像素比例非常小，一般不超过总像素数的0.12%。由于像素数量少，这类目标通常没有明显的纹理特征，呈现为点状。此外红外成像系统依靠的是温差成像，相比于可见光图像，红外图像存在成像不清、容易被淹没在背景噪声中等问题，所以对该类图像的中的目标检测有着较大的挑战。红外弱小目标检测的难点具体可分为以下几个方面：</p>
+<ol>
+<li>目标尺寸小：在远距离红外成像中，目标通常只占据图像中极少的像素数，甚至可能只有一个像素，这导致目标的形状、纹理等结构特征信息丢失，增加了检测难度。</li>
+<li>信噪比低：红外图像中的目标信号容易受到大气衰减和传感器噪声等因素的影响，使得目标与背景之间的对比度较低，进而降低目标的可检测性。</li>
+<li>复杂背景：远距离成像时背景复杂，加上目标本身的辐射强度弱，这些因素共同作用下，目标很容易被背景淹没。</li>
+<li>实时性要求：特别是在军事应用中，需要快速响应，这进一步提高了对检测算法的要求。</li>
+<li>数据集限制：目前公开的红外弱小目标数据集数量较少，且数据量相比其他领域如COCO或ImageNet数据集要小得多，这限制了算法的发展。</li>
+</ol>
+<p>越来越多的研究者投入红外弱小目标检测，但上述问题共同构成了这一领域的研究难点。但如何在复杂的红外图像背景中，高效、准确、通用的检测出弱小目标，仍然是一个具有挑战性的难题[3] 。</p>
+<p>赵鹏鹏,李庶中,李迅,等. 融合视觉显著性和局部熵的红外弱小目标检测[J].中国光学,2022,15(02):267-275.。</p>
+<h4 id="第二版"><a href="#第二版" class="headerlink" title="第二版"></a>第二版</h4><p>红外成像是将目标的红外辐射和背景信息转换成红外图像的过程，具有隐蔽性高、抗干扰性强、可远距离长时间工作等优点。在精确制导、防空预警等国防安全体系中，红外成像能够较早地检测到目标信息，为目标打击提供信息支撑，实现快速打击，具有极高的军事和现实意义。随着科技发展，新型无人机、航拍器等空中设备逐渐增多，法律监管也在逐步完善，但仍存在无人机“黑飞”及间谍利用无人机监视军事设施等问题。空中安全监管以及重点区域的安全保护和隐私防卫需要更加重视。</p>
+<p>当前国际局势较为动荡，在俄乌冲突、巴以冲突中，双方使用无人机探查敌情并进行战术打击。防空系统如美国的“爱国者导弹”系统和以色列的“铁穹”系统对导弹等设备有较高的防御能力，但对低慢小无人机的防御表现有待提高。因此，检测和跟踪无人机等小型目标的能力需要引起重视，这对增强我国的航空安全和军事实力具有重大意义。</p>
+<p>随着计算机硬件的进步以及深度学习的快速发展，计算机视觉各领域的精确度有了极大提升，红外目标检测也取得了显著进步。红外弱小目标检测是指在红外图像中识别和检测亮度较低、对比度不高的小型目标的过程。根据国际光学工程学会（SPIE）的定义，红外弱小目标是指尺寸不超过9x9像素的目标。其“弱”主要体现在目标的局部信噪比很低，与周围背景的差异很小，难以分离出来。而“小”则指目标所占的像素比例非常小，一般不超过总像素数的0.12%。由于像素数量少，这类目标通常没有明显的纹理特征，呈现为点状。</p>
+<p>此外，红外成像系统依靠温差成像，相较于可见光图像，红外图像存在成像不清晰、容易被背景噪声淹没等问题，这对目标检测提出了更大的挑战。红外弱小目标检测的难点具体可分为以下几个方面：</p>
+<ol>
+<li>目标尺寸小：在远距离红外成像中，目标通常只占据图像中极少的像素数，甚至可能只有一个像素，导致目标的形状、纹理等结构特征信息丢失，增加了检测难度。</li>
+<li>信噪比低：红外图像中的目标信号容易受到大气衰减和传感器噪声等因素的影响，使得目标与背景之间的对比度较低，降低了目标的可检测性。</li>
+<li>复杂背景：远距离成像时背景复杂，加上目标本身的辐射强度弱，这些因素共同作用下，目标很容易被背景淹没。</li>
+<li>实时性要求：特别是在军事应用中，需要快速响应，这进一步提高了对检测算法的要求。</li>
+<li>数据集限制：目前公开的红外弱小目标数据集数量较少，且数据量相比其他领域如COCO或ImageNet数据集要小得多，限制了算法的发展。</li>
+</ol>
+<p>越来越多的研究者投入红外弱小目标检测领域，但上述问题共同构成了这一领域的研究难点。如何在复杂的红外图像背景中，高效、准确、通用地检测出弱小目标，仍然是一个具有挑战性的难题。</p>
+<h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><h4 id="Infrared-Dim-Small-Target-Detection-Networks-A-Review"><a href="#Infrared-Dim-Small-Target-Detection-Networks-A-Review" class="headerlink" title="Infrared Dim Small Target Detection Networks: A Review"></a>Infrared Dim Small Target Detection Networks: A Review</h4><p>2014年R-CNN的推出标志着深度学习在目标检测领域的首次应用[32]。从那时起，基于深度学习的目标检测方法已经能够解决大量的目标检测问题。近年来，特别是在王等人的研究之后。 [33] 和戴等人。 [34]发布了红外小目标数据集，越来越多的研究人员将深度学习算法融入到红外弱小目标检测领域。他们根据红外小目标检测的特点定制设计深度学习网络，以提高检测性能。目前，有几篇文章总结了传统的单帧红外弱小目标检测方法[35-39]。</p>
+<h3 id="Gan"><a href="#Gan" class="headerlink" title="Gan"></a>Gan</h3><h4 id="A-Novel-Pattern-for-Infrared-Small-Target-Detection-With-Generative-Adversarial-Network"><a href="#A-Novel-Pattern-for-Infrared-Small-Target-Detection-With-Generative-Adversarial-Network" class="headerlink" title="A Novel Pattern for Infrared Small Target Detection With Generative Adversarial Network"></a>A Novel Pattern for Infrared Small Target Detection With Generative Adversarial Network</h4><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/9165022">https://ieeexplore.ieee.org/abstract/document/9165022</a></p>
+<p>Since existing detectors are often sensitive to the complex background, a novel detection pattern based on generative adversarial network (GAN) is proposed to focus on the essential features of infrared small target in this article. Motivated by the fact that the infrared small targets have their unique distribution characteristics, we construct a GAN model to automatically learn the features of targets and directly predict the intensity of targets. The target is recognized and reconstructed by the generator, built upon U-Net, according the data distribution. A five-layer discriminator is constructed to enhance the data-fitting ability of generator. Besides, the L2 loss is added into adversarial loss to improve the localization. In general, the detection problem is formulated as an image-to-image translation problem implemented by GAN, namely the original image is translated to a detected image with only target remained. By this way, we can achieve reasonable results with no need of specific mapping function or hand-engineering features. Extensive experiments demonstrate the outstanding performance of proposed method on various backgrounds and targets. In particular, the proposed method significantly improve intersection over union (IoU) values of the detection results than state-of-the-art methods.</p>
+<p>由于现有探测器通常对复杂背景敏感，因此本文提出了一种基于生成对抗网络（GAN）的新型检测模式，以关注红外小目标的基本特征。鉴于红外小目标具有独特的分布特征，我们构建了GAN模型来自动学习目标特征并直接预测目标的强度。目标由基于 U-Net 的生成器根据数据分布进行识别和重建。构建五层判别器来增强生成器的数据拟合能力。此外，将 L2 损失添加到对抗性损失中以改善定位。一般来说，检测问题被表述为由 GAN 实现的图像到图像转换问题，即将原始图像转换为仅保留目标的检测图像。通过这种方式，我们可以在不需要特定的映射函数或手工工程特征的情况下获得合理的结果。大量的实验证明了所提出的方法在各种背景和目标上的出色性能。特别是，与最先进的方法相比，所提出的方法显着提高了检测结果的交并集（IoU）值。</p>
+<p>1）我们提出了一种完全不同的模式，通过将检测问题建模为图像到图像的转换问题来完成红外小目标检测。 </p>
+<p>2）我们设计了基于U-Net的GAN架构来实现特征自动提取和目标估计。</p>
+<p>3）引入L2损失来提高目标定位的精度。生成结果在评估指标方面显示出明显优于传统基线方法，包括信号杂波比增益（SCRG）、接收器工作特性（ROC）曲线、ROC曲线下面积（AUC）和并集交集（欠条）。</p>
+<p>将我呢提分为三个部分，目标、背景、噪声</p>
+<h4 id="Miss-Detection-vs-False-Alarm-Adversarial-Learning-for-Small-Object-Segmentation-in-Infrared-Images"><a href="#Miss-Detection-vs-False-Alarm-Adversarial-Learning-for-Small-Object-Segmentation-in-Infrared-Images" class="headerlink" title="Miss Detection vs. False Alarm: Adversarial Learning for Small Object Segmentation in Infrared Images"></a>Miss Detection vs. False Alarm: Adversarial Learning for Small Object Segmentation in Infrared Images</h4><p><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_ICCV_2019/html/Wang_Miss_Detection_vs._False_Alarm_Adversarial_Learning_for_Small_Object_ICCV_2019_paper.html">https://openaccess.thecvf.com/content_ICCV_2019/html/Wang_Miss_Detection_vs._False_Alarm_Adversarial_Learning_for_Small_Object_ICCV_2019_paper.html</a></p>
+<p>A key challenge of infrared small object segmentation (ISOS) is to balance miss detection (MD) and false alarm (FA). This usually needs “opposite” strategies to suppress the two terms, and has not been well resolved in the literature. In this paper, we propose a deep adversarial learning framework to improve this situation. Departing from the tradition of jointly reducing MD and FA via a single objective, we decompose this difficult task into two sub-tasks handled by two models trained adversarially, with each focusing on reducing either MD or FA. Such a new design brings forth at least three advantages. First, as each model focuses on a relatively simpler sub-task, the overall difficulty of ISOS is somehow decreased. Second, the adversarial training of the two models naturally produces a delicate balance of MD and FA, and low rates for both MD and FA could be achieved at Nash equilibrium. Third, this MD-FA detachment gives us more flexibility to develop specific models dedicated to each sub-task. To realize the above design, we propose a conditional Generative Adversarial Network comprising of two generators and one discriminator. Each generator strives for one sub-task, while the discriminator differentiates the three segmentation results from the two generators and the ground truth. Moreover, in order to better serve the sub-tasks, the two generators, based on context aggregation networks, utilzse different size of receptive fields, providing both local and global views of objects for segmentation. As verified on multiple infrared image data sets, our method consistently achieves better segmentation than many state-of-the-art ISOS methods.</p>
+<p>红外小目标分割（ISOS）的一个关键挑战是平衡漏检（MD）和误报（FA）。这通常需要“相反”的策略来抑制这两个术语，并且在文献中尚未得到很好的解决。在本文中，我们提出了一种深度对抗性学习框架来改善这种情况。与通过单一目标联合减少 MD 和 FA 的传统不同，我们将这项艰巨的任务分解为两个子任务，由两个对抗训练的模型处理，每个子任务都专注于减少 MD 或 FA。这样的新设计至少带来三个优点。首先，由于每个模型都专注于相对简单的子任务，ISOS 的整体难度有所降低。其次，两个模型的对抗性训练自然会产生 MD 和 FA 的微妙平衡，并且在纳什均衡下可以实现 MD 和 FA 的低比率。第三，这种 MD-FA 分离使我们能够更加灵活地开发专用于每个子任务的特定模型。为了实现上述设计，我们提出了一种由两个生成器和一个判别器组成的条件生成对抗网络。每个生成器都致力于一个子任务，而鉴别器则区分两个生成器和地面实况的三个分割结果。此外，为了更好地服务子任务，两个基于上下文聚合网络的生成器利用不同大小的感受野，提供对象的局部和全局视图以进行分割。经过多个红外图像数据集的验证，我们的方法始终比许多最先进的 ISOS 方法实现更好的分割。</p>
+<p>Infrared small object segmentation (ISOS) ISOS 任务被分解为两个子任务，即最小化 MD 和最小化 FA。构建两个深度神经网络分别专注于这两个任务。两个网络扮演生成器的角色，各自输出一个分割结果。为了使两个分割结果与地面真实分割结果一致，构建了一个判别器网络来对上述三个结果进行分类。这样，两台发电机就以一种有趣的“竞争与合作”的方式工作。通过竞争，他们努力将像素分别最大限度地分割为物体或背景。通过合作，它们相互协商（即平衡），以向地面实况分割方向收敛，从而欺骗鉴别器。给定测试图像，任一生成器的输出（或其平均值）将是分割结果。整个框架可以通过扩展条件生成对抗网络来轻松实现</p>
+<p>接下来。首先，我们通过采用对抗性学习范式，提出了一种用于红外小物体分割的新颖框架。去掉了显式平衡MD和FA的负担，能够以隐式自然的方式达到微妙的平衡；其次，利用 MD 和 FA 最小化的可分离性，将 ISOS 任务分解为两个单独的且更简单的子任务。与现有的使用单个网络进行分割的方法相比，我们的方法可以降低模型和网络设计的整体难度。第三，上述分离带来的直接优势是开发最适合子任务的模型的额外灵活性，这在我们的工作中得到了证明，如下所示。我们发现在ISOS中，对象的分割更倾向于局部视觉信息，而误报的抑制则受益于全局视觉信息。为了满足这个要求，我们通过上下文聚合网络在两个生成器中使用不同大小的感受野[15]。如果不分离两个子任务，实现这种特殊设置即使不是不可能，也可能会很尴尬。最后，我们在多个红外图像数据集上将我们的方法与相关最先进的小目标分割方法进行比较。结果很好地证明了所提出方法的优越性及其有趣的特性。</p>
+<h3 id="U型网络"><a href="#U型网络" class="headerlink" title="U型网络"></a>U型网络</h3><h4 id="SCTransNet-Spatial-Channel-Cross-Transformer-Network-for-Infrared-Small-Target-Detection"><a href="#SCTransNet-Spatial-Channel-Cross-Transformer-Network-for-Infrared-Small-Target-Detection" class="headerlink" title="SCTransNet: Spatial-Channel Cross Transformer Network for Infrared Small Target Detection"></a>SCTransNet: Spatial-Channel Cross Transformer Network for Infrared Small Target Detection</h4><p>1.图像去噪<br>原理：</p>
+<p>自编码器通过两个主要的神经网络组件实现图像去噪：编码器和解码器。编码器负责将输入图像映射到一个隐藏的表示空间（也称为潜在空间），而解码器则负责从这个潜在表示重构图像。</p>
+<p>编码器：接收含噪声的图像，通过逐层压缩数据，学习到一个潜在的、更紧凑的表示形式。这一过程中，网络被迫学习忽略噪声，只保留最重要的图像特征。<br>解码器：接收潜在空间中的紧凑表示，通过逐层扩展数据，重构去噪后的图像。理想情况下，重构的图像应该接近原始图像，而不包含噪声。<br>实现：</p>
+<p>在训练过程中，自编码器的目标是最小化重构图像与原始无噪声图像之间的差异，通常使用均方误差（MSE）作为损失函数。通过这种方式，模型学习到如何有效地去除输入图像中的噪声。</p>
+<p>2.特征提取和降维<br>原理：</p>
+<p>自编码器在特征提取和降维中的应用基于其能力将数据编码到一个低维潜在空间。这个过程捕获了输入数据的关键信息，同时去除了冗余。</p>
+<p>编码器：将高维输入数据（如图像）映射到一个低维表示。这个低维表示是输入数据的一个压缩形式，包含了最重要的特征。<br>解码器：尝试从这个低维表示重构原始输入。如果重构质量高，这表明低维表示成功捕获了输入数据的关键信息。<br>实现：</p>
+<p>通过训练自编码器最小化输入与重构输出之间的差异，模型学习提取数据的有效特征。这些特征可以用于各种下游任务，如分类或聚类，提高了处理效率和性能。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-chain-item">深度学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BA%A2%E5%A4%96%E5%B0%8F%E7%9B%AE%E6%A0%87/" class="print-no-link">#红外小目标</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>红外小目标</div>
+      <div>http://example.com/2024/11/18/红外小目标/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Eren Persimmon</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/11/18/HEXO%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/" title="HEXO简单教程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">HEXO简单教程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/28/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/" title="杂七杂八">
+                        <span class="hidden-mobile">杂七杂八</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"6bqQwrwDxoTBsXslZ4b41VCD-gzGzoHsz","appKey":"HtX7PjPlMUdNJQ0WA1MOox8E","path":"window.location.pathname","placeholder":"说点什么...","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+        
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+        
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
