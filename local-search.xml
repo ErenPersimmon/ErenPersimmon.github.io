@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>刷题笔记</title>
+    <link href="/2025/01/19/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"/>
+    <url>/2025/01/19/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h1 id="力扣刷题"><a href="#力扣刷题" class="headerlink" title="力扣刷题"></a>力扣刷题</h1><h2 id="33题，搜索旋转排序数组"><a href="#33题，搜索旋转排序数组" class="headerlink" title="33题，搜索旋转排序数组"></a>33题，搜索旋转排序数组</h2><p>整数数组 <code>nums</code> 按升序排列，数组中的值 <strong>互不相同</strong> 。</p><p>在传递给函数之前，<code>nums</code> 在预先未知的某个下标 <code>k</code>（<code>0 &lt;= k &lt; nums.length</code>）上进行了 <strong>旋转</strong>，使数组变为 <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code>（下标 <strong>从 0 开始</strong> 计数）。例如， <code>[0,1,2,4,5,6,7]</code> 在下标 <code>3</code> 处经旋转后可能变为 <code>[4,5,6,7,0,1,2]</code> 。</p><p>给你 <strong>旋转后</strong> 的数组 <code>nums</code> 和一个整数 <code>target</code> ，如果 <code>nums</code> 中存在这个目标值 <code>target</code> ，则返回它的下标，否则返回 <code>-1</code> 。</p><p>你必须设计一个时间复杂度为 <code>O(log n)</code> 的算法解决此问题。</p><p><strong>示例 1：</strong></p><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">输入：nums = <span class="hljs-string">[4,5,6,7,0,1,2]</span>, target = <span class="hljs-number">0</span><br>输出：<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">输入：nums = <span class="hljs-string">[4,5,6,7,0,1,2]</span>, target = <span class="hljs-number">3</span><br>输出：-<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p><strong>示例 3：</strong></p><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs aspectj">输入：nums = [<span class="hljs-number">1</span>], <span class="hljs-keyword">target</span> = <span class="hljs-number">0</span><br>输出：<span class="hljs-number">-1</span><br></code></pre></td></tr></table></figure><p><strong>解法</strong>：解题思路：<br>题目要求 O(logN) 的时间复杂度，基本可以断定本题是需要使用二分查找，怎么分是关键。<br>由于题目说数字了无重复，举个例子：<br>1 2 3 4 5 6 7 可以大致分为两类，<br>第一类 2 3 4 5 6 7 1 这种，也就是 nums[start] &lt;&#x3D; nums[mid]。此例子中就是 2 &lt;&#x3D; 5。<br>这种情况下，前半部分有序。因此如果 nums[start] &lt;&#x3D;target&lt;nums[mid]，则在前半部分找，否则去后半部分找。<br>第二类 6 7 1 2 3 4 5 这种，也就是 nums[start] &gt; nums[mid]。此例子中就是 6 &gt; 2。<br>这种情况下，后半部分有序。因此如果 nums[mid] &lt;target&lt;&#x3D;nums[end]，则在后半部分找，否则去前半部分找。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">search</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span> &#123;<br>        <span class="hljs-keyword">if</span>(nums == <span class="hljs-literal">null</span> || nums.length == <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> nums.length - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (left &lt;= right)&#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> (right - left) / <span class="hljs-number">2</span> + left;<br>            <span class="hljs-keyword">if</span>(nums[mid] == target)&#123;<br>                <span class="hljs-keyword">return</span> mid;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(nums[left] &lt;= nums[mid])&#123;<br>                <span class="hljs-keyword">if</span>(nums[left] &lt;= target &amp;&amp; target &lt; nums[mid])&#123;<br>                    right = mid - <span class="hljs-number">1</span>;<br>                &#125;<span class="hljs-keyword">else</span> &#123;<br>                    left = mid + <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">if</span>(nums[mid] &lt; target &amp;&amp; target &lt;= nums[right])&#123;<br>                    left = mid + <span class="hljs-number">1</span>;<br>                &#125;<span class="hljs-keyword">else</span> &#123;<br>                    right = mid - <span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法刷题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>找工作</tag>
+      
+      <tag>刷题</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>HEXO简单教程</title>
     <link href="/2024/11/18/HEXO%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/"/>
     <url>/2024/11/18/HEXO%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/</url>
